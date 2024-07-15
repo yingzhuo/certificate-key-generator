@@ -1,6 +1,6 @@
-# JavaApplicationSSLKeyGenerator
+## Certificate & Key Generator
 
-本项目用于生成Java应用程序需要的SSL自签名证书等。
+本项目用于生成应用程序需要的SSL自签名证书，秘钥等。
 
 ### (1) 工具
 

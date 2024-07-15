@@ -25,3 +25,8 @@ openssl pkcs12 \
   -name "$JWT_ALIAS" \
   -out "$SELF_DIR/../jwt/jwt.p12" \
   -passout pass:"$JWT_PASS"
+
+if [ x"$DELETE_MID_PRODUCT" = "xtrue" ]; then
+  rm -rf "$SELF_DIR/../jwt/jwt-privatekey-pkcs8.pem"
+  rm -rf "$SELF_DIR/../jwt/jwt-cert-x509.pem"
+fi

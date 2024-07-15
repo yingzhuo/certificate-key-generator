@@ -3,10 +3,11 @@
 SELF_DIR="$(dirname $0)"
 source "$SELF_DIR/env.sh"
 
-echo "input \"clean-all\" please: "
+echo "input \"clean all\" to remove all generated files: "
 read INPUT
 
-if [ x"$INPUT" = "xclean-all" ]; then
+# 防呆机制
+if [ x"$INPUT" = "xclean all" ]; then
     rm -rf "$SELF_DIR/../client/"
     rm -rf "$SELF_DIR/../server/"
     rm -rf "$SELF_DIR/../jwt/"
@@ -14,6 +15,5 @@ if [ x"$INPUT" = "xclean-all" ]; then
     rm -rf "$SELF_DIR/../root-ca.key"
     rm -rf "$SELF_DIR/../root-ca.srl"
 else
-    echo "wrong!"
     echo "abort ..."
 fi

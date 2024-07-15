@@ -8,12 +8,12 @@
 EXPIRE_DAYS=36500
 
 # 是否删除中间产物文件
-DELETE_MID_PRODUCT="true"
+DELETE_MID_PRODUCT="false"
 
 # 密码
 GLOBAL_PASS="changeit"
 
-# 证书(DN) - 国家
+# 证书(DN) - 国家/地区
 SUBJ_C="CN"
 
 # 证书(DN) - 州/省
