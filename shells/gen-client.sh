@@ -3,7 +3,7 @@
 SELF_DIR="$(dirname $0)"
 source "$SELF_DIR/env.sh"
 
-if [ ! -f "$SELF_DIR/../root-ca.crt" ]; then
+if [ ! -f "$SELF_DIR/../rootca-cert-x509.pem" ]; then
   echo "CA root files NOT exists"
   echo "abort ..."
   exit 0
@@ -13,36 +13,34 @@ for name in $(eval echo "$CLIENT_NAMES")
 do
 
   openssl req -new \
-    -newkey rsa:2048 \
+    -newkey rsa:1024 \
     -sha512 \
     -utf8 \
     -subj "/CN=$name/" \
     -outform PEM \
     -noenc \
-    -keyout "$SELF_DIR/../client/client-$name.key" \
+    -keyout "$SELF_DIR/../client/client-$name-privatekey-pkcs8.pem" \
     -out "$SELF_DIR/../client/client-$name.csr"
 
   openssl x509 -req \
-    -CA "$SELF_DIR/../root-ca.crt" \
     -CAcreateserial \
-    -CAkey "$SELF_DIR/../root-ca.key" \
+    -CA "$SELF_DIR/../rootca-cert-x509.pem" \
+    -CAkey "$SELF_DIR/../rootca-privatekey-pkcs8.pem" \
     -in "$SELF_DIR/../client/client-$name.csr" \
-    -passin pass:"$CLIENT_KEY_PASS" \
-    -out "$SELF_DIR/../client/client-$name.crt" \
+    -out "$SELF_DIR/../client/client-$name-cert-x509.pem" \
     -days "$EXPIRE_DAYS"
 
   openssl pkcs12 -export \
     -out "$SELF_DIR/../client/client-$name.p12" \
-    -passout pass:"$CLIENT_KEY_PASS" \
+    -passout pass:"$CLIENT_STORE_PASS" \
     -name "$name" \
-    -inkey "$SELF_DIR/../client/client-$name.key" \
-    -in "$SELF_DIR/../client/client-$name.crt" \
-    -passin pass:"$CLIENT_KEY_PASS"
+    -inkey "$SELF_DIR/../client/client-$name-privatekey-pkcs8.pem" \
+    -in "$SELF_DIR/../client/client-$name-cert-x509.pem"
+
+  rm -rf "$SELF_DIR/../rootca-cert-x509.srl"
 
   if [ x"$DELETE_MID_PRODUCT" = "xtrue" ]; then
-    rm -rf "$SELF_DIR/../client/client-$name.key"
     rm -rf "$SELF_DIR/../client/client-$name.csr"
-    rm -rf "$SELF_DIR/../client/client-$name.crt"
   fi
 
 done

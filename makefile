@@ -2,7 +2,7 @@ usage:
 	@echo "================================================================="
 	@echo "usage (default)         : 显示本菜单"
 	@echo "init                    : 初始化目录"
-	@echo "gen-root-ca             : 生成自签名根证书与秘钥"
+	@echo "gen-rootca              : 生成自签名根证书与秘钥"
 	@echo "gen-server              : 生成服务器用秘钥等"
 	@echo "gen-client              : 生成客户端用秘钥等"
 	@echo "gen-jwt                 : 生成JWT签名所需的秘钥"
@@ -14,8 +14,8 @@ usage:
 init:
 	@bash $(CURDIR)/shells/init.sh
 
-gen-root-ca: init
-	@bash $(CURDIR)/shells/gen-root-ca.sh
+gen-rootca: init
+	@bash $(CURDIR)/shells/gen-rootca.sh
 
 gen-server: init
 	@bash $(CURDIR)/shells/gen-server.sh
@@ -38,8 +38,6 @@ github:
 	@git commit -m "$(shell /bin/date "+%F %T")"
 	@git push
 
-.PHONY: usage \
-	clean clean-all \
-	init \
-	gen-root-ca gen-sever gen-jwt \
+.PHONY: usage clean clean-all init \
+	gen-rootca gen-sever gen-jwt \
 	github

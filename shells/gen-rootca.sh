@@ -9,6 +9,10 @@ openssl req -x509 \
   -subj "/CN=$SUBJ_CN/C=$SUBJ_C/ST=$SUBJ_ST/L=$SUBJ_L/O=$SUBJ_O/OU=$SUBJ_OU/" \
   -utf8 \
   -days "$EXPIRE_DAYS" \
-  -keyout "$SELF_DIR/../root-ca.key" \
-  -passout pass:"$ROOT_CA_KEY_PASS" \
-  -out "$SELF_DIR/../root-ca.crt"
+  -keyout "$SELF_DIR/../rootca-privatekey-pkcs8.pem" \
+  -noenc \
+  -out "$SELF_DIR/../rootca-cert-x509.pem"
+
+if [ x"$DELETE_MID_PRODUCT" = "xtrue" ]; then
+  true
+fi

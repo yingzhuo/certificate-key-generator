@@ -12,7 +12,7 @@
 
 ```bash
 # 生成自签名根证书
-make gen-root-ca
+make gen-rootca
 
 # 生成服务器端用证书和秘钥
 make gen-server
