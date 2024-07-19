@@ -38,7 +38,8 @@ make usage
 ### (3) 注意事项
 
 * 可按照实际需求更改[变量文件](/shells/env.sh)。建议您优先使用`PKCS#12`格式的文件。
-* 本程序生成的私钥文件(PEM)都是无加密的。请您注意保管。
+* 本程序生成的私钥文件(.pem)都是无加密的。请您注意保管。
+* 本程序生成的KeyStore文件(.p12)的`storepass`和`keypass`是一致的，默认值为`changeit`。
 * 推荐另一款开源工具[KeyStore Explorer](https://keystore-explorer.org/index.html)来生成证书和秘钥等。
 
 ### (4) 参考文献
@@ -48,4 +49,4 @@ make usage
 
 ### (5) 许可证
 
-[Apache-2.0](./LICENSE)
+* [Apache-2.0](./LICENSE)
