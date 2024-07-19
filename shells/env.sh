@@ -11,7 +11,7 @@ DELETE_MID_PRODUCT="true"
 EXPIRE_DAYS=99999
 
 # 密码
-GLOBAL_PASS="changeit"
+GLOBAL_STORE_PASS="changeit"
 
 # 证书(DN) - 国家/地区
 SUBJ_C="CN"
@@ -31,24 +31,27 @@ SUBJ_OU="Unknown"
 # 证书(DN) - 通用名
 SUBJ_CN="YingZhuo"
 
+# 证书(DN) - 用户ID
+SUBJ_UID="Unknown"
+
 # -----------------------------------------------------------------------------
 # 服务器端证书与秘钥
 # -----------------------------------------------------------------------------
 
 SERVER_STORE_ALIAS="server"
-SERVER_STORE_PASS="$GLOBAL_PASS"
+SERVER_STORE_PASS="$GLOBAL_STORE_PASS"
 
 TRUST_STORE_ALIAS="trust"
-TRUST_STORE_PASS="$GLOBAL_PASS"
+TRUST_STORE_PASS="$GLOBAL_STORE_PASS"
 
 # -----------------------------------------------------------------------------
 # 客户端证书与秘钥
 # -----------------------------------------------------------------------------
 CLIENT_NAMES="bill coco"
-CLIENT_STORE_PASS="$GLOBAL_PASS"
+CLIENT_STORE_PASS="$GLOBAL_STORE_PASS"
 
 # -----------------------------------------------------------------------------
 # JWT相关
 # -----------------------------------------------------------------------------
 JWT_ALIAS="jwt"
-JWT_STORE_PASS="$GLOBAL_PASS"
+JWT_STORE_PASS="$GLOBAL_STORE_PASS"

@@ -35,11 +35,11 @@ make clean-all
 make usage
 ```
 
-**注意:** 可按照实际需求更改[变量文件](/shells/env.sh)。强烈建议您在`Java`工程中使用使用`PKCS#12`格式的文件。
+### (3) 注意事项
 
-### (3) 其他
-
-如果不愿意使用本项目，不妨使用开源工具[KeyStore Explorer](https://keystore-explorer.org/index.html)来生成证书和秘钥等。
+* 可按照实际需求更改[变量文件](/shells/env.sh)。建议您优先使用`PKCS#12`格式的文件。
+* 本程序生成的私钥文件(PEM)都是无加密的。请您注意保管。
+* 推荐另一款开源工具[KeyStore Explorer](https://keystore-explorer.org/index.html)来生成证书和秘钥等。
 
 ### (4) 参考文献
 
