@@ -1,6 +1,7 @@
 ## Certificate & Key Generator
 
-本项目用于生成应用程序需要的SSL自签名证书，秘钥等。
+本项目用于生成应用程序需要的SSL自签名证书，秘钥等。<br>
+使用另一款开源工具[KeyStore Explorer](https://keystore-explorer.org/index.html)来生成自签名证书也是一个不错的主意，具体请看此[教程](https://medium.com/@deyjsuka/ssl-certificate-generation-self-signed-and-ca-signed-5289d20b1be8)。如此，您可能用不到本项目。
 
 ### (1) 工具
 
@@ -40,7 +41,6 @@ make usage
 * 可按照实际需求更改[变量文件](/shells/env.sh)。建议您优先使用`PKCS#12`格式的文件。
 * 本程序生成的私钥文件(.pem)都是无加密的。请您注意保管。
 * 本程序生成的KeyStore文件(.p12)的`storepass`和`keypass`是一致的，默认值为`changeit`。
-* 推荐另一款开源工具[KeyStore Explorer](https://keystore-explorer.org/index.html)来生成证书和秘钥等。
 
 ### (4) 参考文献
 
